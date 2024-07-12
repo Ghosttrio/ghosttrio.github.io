@@ -12,15 +12,13 @@ tags: [Java]
 
 ```java
 public class Urls {
-    public static final String[] ALLOW_URL = {"/api", "/test"};
+    public static final String[] ALLOW_URLS = {"/api", "/test"};
 }
 
 
 ...
 // Security 코드
-.authorizeHttpRequests(request -> request
-        .dispatcherTypeMatchers(DispatcherType.FORWARD).permitAll()
-        .requestMatchers(ADMIN_ALLOW_URLS.toString()).permitAll()
+.requestMatchers(ALLOW_URLS.toString()).permitAll()
 ...
 
 ```
