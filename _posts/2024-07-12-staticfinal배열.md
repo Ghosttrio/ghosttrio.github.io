@@ -15,12 +15,10 @@ public class Urls {
     public static final String[] ALLOW_URLS = {"/api", "/test"};
 }
 
-
 ...
 // Security 코드
 .requestMatchers(ALLOW_URLS.toString()).permitAll()
 ...
-
 ```
 
 
@@ -49,7 +47,6 @@ public class Main {
         Test.ARR = changeArr; // 에러
     }
 }
-
 ```
 
 - 배열의 참조를 변경하지 말고 배열의 요소를 변경해보자
@@ -69,7 +66,6 @@ public class Main {
 change
 bb
 cc
-
 ```
 
 - 그렇다면 어떻게 막아야 하지?
