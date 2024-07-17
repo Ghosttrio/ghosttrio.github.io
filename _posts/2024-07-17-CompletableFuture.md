@@ -27,15 +27,16 @@ static List<String> findPrices(String product) {
 }
 ```
 - 성능 측정
+
 ```java
 long start = System.nanoTime();
 System.out.println(findPrices("test"));
 long duration = (System.nanoTime() - start) / 1_000_000;
 System.out.println("Done in " + duration + " msecs");
 
-
 // 4032
 ```
+
 
 #### 병렬 스트림
 - 병렬 스트림을 이용하여 구현
@@ -46,6 +47,7 @@ static List<String> findPricesWithParallel(String product) {
             .collect(Collectors.toList());
 }
 ```
+
 - 성능 측정
 ```java
 long start1 = System.nanoTime();
@@ -55,6 +57,7 @@ System.out.println("Done in " + duration1 + " msecs");
 
 // 1180ms
 ```
+
 
 #### CompletableFuture로 비동기 호출
 - CompletableFuture를 이용하여 구현
@@ -85,6 +88,7 @@ System.out.println("Done in " + duration2 + " msecs");
 
 #### 커스텀 Executor를 이용한 CompletableFuture
 - 커스텀 Executor, CompletableFuture를 이용하여 구현
+
 ```java
 public static Executor CustomThread() {
     return Executors.newFixedThreadPool(Math.min(shops.size(), 1000), new ThreadFactory() {
@@ -110,7 +114,9 @@ static List<String> findPricesWithExecutor(String product) {
             .collect(Collectors.toList());
 }
 ```
+
 - 성능 측정
+
 ```java
 long start3 = System.nanoTime();
 System.out.println(findPricesWithExecutor("test"));
