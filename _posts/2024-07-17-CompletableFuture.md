@@ -18,7 +18,9 @@ List<Shop> shops = Arrays.asList(
 모든 상점의 정보를 순차적으로 요청하는 메서드를 성능을 고려하여 개선하며 구현해보자.
 
 #### 단순 스트림
+
 - 스트림을 이용하여 구현
+
 ```java
 static List<String> findPrices(String product) {
     return shops.stream()
@@ -26,6 +28,7 @@ static List<String> findPrices(String product) {
             .collect(Collectors.toList());
 }
 ```
+
 - 성능 측정
 
 ```java
