@@ -39,7 +39,9 @@ System.out.println("Done in " + duration + " msecs");
 
 
 #### 병렬 스트림
+
 - 병렬 스트림을 이용하여 구현
+
 ```java
 static List<String> findPricesWithParallel(String product) {
     return shops.parallelStream()
@@ -49,6 +51,7 @@ static List<String> findPricesWithParallel(String product) {
 ```
 
 - 성능 측정
+
 ```java
 long start1 = System.nanoTime();
 System.out.println(findPricesWithParallel("test"));
@@ -60,7 +63,9 @@ System.out.println("Done in " + duration1 + " msecs");
 
 
 #### CompletableFuture로 비동기 호출
+
 - CompletableFuture를 이용하여 구현
+
 ```java
 static List<String> findPricesWithCompletableFuture(String product) {
     List<CompletableFuture<String>> collect = shops.stream()
@@ -73,7 +78,9 @@ static List<String> findPricesWithCompletableFuture(String product) {
             .collect(Collectors.toList());
 }
 ```
+
 - 성능 측정
+
 ```java
 long start2 = System.nanoTime();
 System.out.println(findPricesWithCompletableFuture("test"));
