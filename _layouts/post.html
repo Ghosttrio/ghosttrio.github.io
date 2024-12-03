@@ -8,11 +8,11 @@ layout: default
   {{ content }}
 </div>
 
-{% if site.related_posts.size >= 1 %}
+{% if site.related_posts.size >= 3 %}
 <div class="related">
   <h2>Related posts</h2>
   <ul class="related-posts">
-    {% for post in site.related_posts limit:1 %}
+    {% for post in site.related_posts limit:3 %}
       <li>
         <h3>
           <a href="{{ site.baseurl }}{{ post.url }}">
