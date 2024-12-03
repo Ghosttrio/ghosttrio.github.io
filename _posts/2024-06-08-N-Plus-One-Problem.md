@@ -1,6 +1,6 @@
 ---
 title: N+1 문제 해결하기
-categories: [JPA]
+categories: [Java]
 tags: [JPA, N+1]
 ---
 
