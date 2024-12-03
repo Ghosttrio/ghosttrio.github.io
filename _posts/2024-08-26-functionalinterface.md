@@ -1,6 +1,7 @@
 ---
+layout: page
 title: @FunctionalInterface
-categories: [java]
+categories: [Java]
 tags: [java]
 ---
 

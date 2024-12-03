@@ -1,51 +1,65 @@
-/*
- *  ___
- * /\_ \
- * \//\ \      __      ___   __  __    ___     ___
- *   \ \ \   /'__`\  /' _ `\/\ \/\ \  / __`\ /' _ `\
- *    \_\ \_/\ \_\.\_/\ \/\ \ \ \_\ \/\ \_\ \/\ \/\ \
- *    /\____\ \__/.\_\ \_\ \_\/`____ \ \____/\ \_\ \_\
- *    \/____/\/__/\/_/\/_/\/_/`/___/> \/___/  \/_/\/_/
- *                               /\___/
- *                               \/__/
- *
- * Designed, built, and released under MIT license by @mdo. Learn more at
- * https://github.com/poole/lanyon.
- */
+/* Dropdown container */
+.dropdown {
+  position: relative;
+  width: 100%; /* 부모 크기에 맞게 */
+}
+
+/* Dropdown link style */
+.dropdown-toggle {
+  display: block;
+  padding: .5rem 1rem;
+  border-top: 1px solid rgba(255,255,255,.1);
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease; /* 부드러운 효과 */
+}
+
+/* Hidden dropdown content */
+.dropdown-content {
+  display: block; /* Initially show but hide with opacity and transform */
+  position: absolute;
+  background-color: #333;
+  width: 100%; /* 부모 요소의 크기와 맞추기 */
+  z-index: 1;
+  opacity: 0; /* Initially hidden with no opacity */
+  transform: scaleY(0) translateY(-10px); /* Dropdown starts from above and scaled down */
+  transform-origin: top; /* Start scaling from top */
+  transition: opacity 0.3s ease, transform 0.4s ease; /* 부드러운 애니메이션 */
+}
+
+/* Style for dropdown items */
+.dropdown-content a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  transition: background-color 0.3s ease;
+}
+
+/* Highlight dropdown items on hover */
+.dropdown-content a:hover {
+  background-color: rgba(255, 255, 255, .1);
+}
+
+/* Show the dropdown when hovering over the dropdown container */
+.dropdown:hover .dropdown-content {
+  opacity: 1; /* 메뉴 보이기 */
+  transform: scaleY(1) translateY(0); /* 메뉴가 자연스럽게 펼쳐지고, 위치를 이동 */
+}
+
+/* Smooth hover transition for dropdown-toggle */
+.dropdown-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
 
 
-/*
- * Contents
- *
- * Global resets
- * Masthead
- * Sidebar
- * Slide effect
- * Posts and pages
- * Pagination
- * Reverse layout
- * Themes
- */
-
-
-/*
- * Global resets
- *
- * Update the foundational and global aspects of the page.
- */
-
-/* Prevent scroll on narrow devices */
 html,
 body {
   overflow-x: hidden;
 }
 
 html {
-  /* font-family: "PT Serif", Georgia, "Times New Roman", serif; */
   font-family: "Noto Sans KR", sans-serif;
 }
-
-
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "PT Sans", Helvetica, Arial, sans-serif;
@@ -55,25 +69,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
-/*
- * Wrapper
- *
- * The wrapper is used to position site content when the sidebar is toggled. We
- * use an outter wrap to position the sidebar without interferring with the
- * regular page content.
- */
-
 .wrap {
   position: relative;
   width: 100%;
 }
 
 
-/*
- * Container
- *
- * Center the page content.
- */
 
 .container {
   max-width: 28rem;
@@ -90,11 +91,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
-/*
- * Masthead
- *
- * Super small header above the content for site name and short description.
- */
 
 .masthead {
   padding-top:    1rem;
@@ -127,22 +123,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
-/*
- * Sidebar
- *
- * The sidebar is the drawer, the item we are toggling with our handy hamburger
- * button in the corner of the page.
- *
- * This particular sidebar implementation was inspired by Chris Coyier's
- * "Offcanvas Menu with CSS Target" article, and the checkbox variation from the
- * comments by a reader. It modifies both implementations to continue using the
- * checkbox (no change in URL means no polluted browser history), but this uses
- * `position` for the menu to avoid some potential content reflow issues.
- *
- * Source: http://css-tricks.com/off-canvas-menu-with-css-target/#comment-207504
- */
-
-/* Style and "hide" the sidebar */
 .sidebar {
   position: fixed;
   top: 0;
@@ -259,18 +239,6 @@ a.sidebar-nav-item:focus {
   }
 }
 
-/* Slide effect
- *
- * Handle the sliding effects of the sidebar and content in one spot, seperate
- * from the default styles.
- *
- * As an a heads up, we don't use `transform: translate3d()` here because when
- * mixed with `position: fixed;` for the sidebar toggle, it creates a new
- * containing block. Put simply, the fixed sidebar toggle behaves like
- * `position: absolute;` when transformed.
- *
- * Read more about it at http://meyerweb.com/eric/thoughts/2011/09/12/.
- */
 
 .wrap,
 .sidebar,
@@ -298,19 +266,13 @@ a.sidebar-nav-item:focus {
 }
 
 
-/*
- * Posts and pages
- *
- * Each post is wrapped in `.post` and is used on default and post layouts. Each
- * page is wrapped in `.page` and is only used on the page layout.
- */
 
 .page,
 .post {
   margin-bottom: 4em;
 }
 
-/* Blog post or page title */
+
 .page-title,
 .post-title,
 .post-title a {
@@ -354,13 +316,6 @@ a.sidebar-nav-item:focus {
   color: inherit;
 }
 
-
-/*
- * Pagination
- *
- * Super lightweight (HTML-wise) blog pagination. `span`s are provide for when
- * there are no more previous or next posts to show.
- */
 
 .pagination {
   overflow: hidden; /* clearfix */
@@ -406,13 +361,6 @@ a.pagination-item:hover {
   }
 }
 
-
-/*
- * Reverse layout
- *
- * Flip the orientation of the page by placing the `.sidebar` and sidebar toggle
- * on the right side.
- */
 
 .layout-reverse .sidebar {
   left: auto;
