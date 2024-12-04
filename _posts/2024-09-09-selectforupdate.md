@@ -1,7 +1,7 @@
 ---
+layout: post
 title: select for update문
-categories: [DB]
-tags: [DB, MySQL]
+categories: DB
 ---
 
 select for update문은 데이터베이스에서 동시성 제어를 위해 사용되는 SQL 구문으로, 트랜잭션에서 특정 레코드를 잠금으로써 다른 트랜잭션이 해당 레코드를 수정하지 못하도록 하는 기능이다.

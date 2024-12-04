@@ -1,7 +1,7 @@
 ---
+layout: post
 title: properties 값을 가져오는 방법
-categories: [spring]
-tags: [spring]
+categories: Spring
 ---
 
 스프링에서 application.properties나 application.yml 파일에 설정된 값들을 가져오는 다양한 방법을 알아보자.

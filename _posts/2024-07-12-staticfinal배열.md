@@ -1,7 +1,7 @@
 ---
+layout: post
 title: public static final 배열의 보안 허점
-categories: [이펙티브자바]
-tags: [Java]
+categories: Java
 ---
 
 이펙티브 자바의 내용 중에 상수라면 public static final 필드로 공개해도 괜찮고,

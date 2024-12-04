@@ -1,7 +1,7 @@
 ---
+layout: post
 title: TypeSafeMatcher를 이용한 커스텀 매처 구현
-categories: [test]
-tags: [test]
+categories: Test
 ---
 
 테스트 관련 서적을 읽다보면 hamcrest를 이용한 커스텀 매처를 구현해서 사용하는 경우를 볼 수 있는데, 직접 구현해보자.

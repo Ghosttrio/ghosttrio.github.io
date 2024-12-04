@@ -1,6 +1,4 @@
 ---
 layout: page
-title: Jpa
+title: JPA
 ---
-
-<a href="/jpa/1/">jpa</a>

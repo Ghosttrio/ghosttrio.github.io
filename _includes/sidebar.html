@@ -25,6 +25,13 @@
       {% endif %}
     {% endfor %}
 
+
+    {% for category in site.categories %}
+      {% if category[0] == "jpa" %}
+        <a class="sidebar-nav-item{% if page.title == 'Home' %} active{% endif %}" href="{{ site.baseurl }}/categories/{{ category[0] }}">{{ category[0] }}</a>
+      {% endif %}
+    {% endfor %}
+
   </nav>
 
 </div>

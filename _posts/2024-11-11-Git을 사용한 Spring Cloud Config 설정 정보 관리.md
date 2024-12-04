@@ -1,7 +1,7 @@
 ---
+layout: post
 title: Git을 사용한 Spring Cloud Config 설정 정보 관리
-categories: [Spring]
-tags: [Spring]
+categories: Spring
 ---
 
 Spring Cloud Config와 Git을 사용해서 설정 정보 파일을 관리해보자.

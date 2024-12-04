@@ -1,7 +1,7 @@
 ---
 layout: post
 title: N+1 문제 해결하기
-permalink: /jpa/1/
+categories: JPA
 ---
 
 # 배경

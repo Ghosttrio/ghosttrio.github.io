@@ -1,7 +1,7 @@
 ---
+layout: post
 title: Non block 코드 만들기
-categories: [모던자바인액션]
-tags: [Java]
+categories: Java
 ---
 
 먼저 다음과 같은 상점 리스트가 있다고 해보자

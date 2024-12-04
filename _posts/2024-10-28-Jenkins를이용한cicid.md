@@ -1,7 +1,7 @@
 ---
+layout: post
 title: Jenkins와 CI/CD
-categories: [Jenkins]
-tags: [Jenkins]
+categories: DevOps
 ---
 
 젠킨스를 이용하여 간단한 CI/CD 파이프라인을 구현해보자.

@@ -1,7 +1,7 @@
 ---
+layout: post
 title: try-finally 보다는 try-with-resources를 사용하라
-categories: [java]
-tags: [java]
+categories: Java
 ---
 
 try-with-resources는 자바 7에서 도입된 문법으로, 자원을 자동으로 관리하고 닫을 수 있도록 도와주는 기능이다.

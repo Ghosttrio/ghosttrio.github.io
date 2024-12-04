@@ -1,9 +1,9 @@
 ---
-layout: page
-title: @FunctionalInterface
-categories: [Java]
-tags: [java]
+layout: post
+title: 자바 FunctionalInterface
+categories: Java
 ---
+
 
 @FunctionalInterface는 Java 8에서 도입된 어노테이션으로, 람다 표현식과 메서드 참조에 사용될 수 있는 함수형 인터페이스임을 나타낸다.
 
