@@ -51,7 +51,7 @@ update user set name = 'aftername' where id = 1;
 
 ```
 
-![sql](image.png)
+![sql](/public/img/240909/image.png)
 
 세션 1에서 커밋을 한다면 세션 2에서도 데이터 수정이 가능한 모습을 볼 수 있다.
 

@@ -131,8 +131,8 @@ void NPlusOne테스트() {
     teamRepository.findAll();
 }
 ```
-
-![1](/assets/img/docimg/0508/1.png)
+<!-- 
+![1](/assets/img/docimg/0508/1.png) -->
 
 - 원하는 결과는 쿼리 1번인데 team에 해당하는 member에 대한 쿼리 10번이 추가로 나간다.
 
@@ -161,9 +161,9 @@ void Fetch를_Eager에서_Lazy로변환(){
 }
 ```
 
-![2](/assets/img/docimg/0508/2.png)
+<!-- ![2](/assets/img/docimg/0508/2.png)
 
-![3](/assets/img/docimg/0508/3.png)
+![3](/assets/img/docimg/0508/3.png) -->
 
 ### 해결방법
 
@@ -188,7 +188,7 @@ void 해결방안1_fetch_join(){
 }
 ```
 
-![4](/assets/img/docimg/0508/4.png)
+<!-- ![4](/assets/img/docimg/0508/4.png) -->
 
 - EntityGraph 어노테이션
 
@@ -210,7 +210,7 @@ void 해결방안2_Entity_Graph(){
 }
 ```
 
-![5](/assets/img/docimg/0508/5.png)
+<!-- ![5](/assets/img/docimg/0508/5.png) -->
 
 - FetchMode.SUBSELECT
 
@@ -232,7 +232,7 @@ private List<Member> members = new ArrayList<>();
     }
 ```
 
-![6](/assets/img/docimg/0508/6.png)
+<!-- ![6](/assets/img/docimg/0508/6.png) -->
 
 - Batch Size
 
@@ -262,7 +262,7 @@ void 해결방안4_Batch_Size(){
 }
 ```
 
-![7](/assets/img/docimg/0508/7.png)
+<!-- ![7](/assets/img/docimg/0508/7.png) -->
 
 - 도메인로직
 
@@ -317,5 +317,5 @@ public class DomainNPlusOneTest {
 List<String> findAllWithMember();
 
 ```
-![8](/assets/img/docimg/0508/8.png)
+<!-- ![8](/assets/img/docimg/0508/8.png) -->
 

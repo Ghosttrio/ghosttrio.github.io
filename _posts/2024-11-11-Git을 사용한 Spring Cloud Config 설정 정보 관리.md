@@ -159,8 +159,7 @@ public class TestController {
 
 아래와 같이 나온다면 성공이다!
 
-![alt text](image-20.png)
-
+![alt text](/public/img/241111/image-20.png)
 
 이렇게 Git을 이용한 방법을 로컬에서뿐만 아니라 원격 저장소(Github)와 같은 곳에서도 가져올 수 있다.
 
