@@ -1,7 +1,7 @@
 # Setup
-title:               창순 Blog
+title:               Changsoon's Note
 tagline:             'Backend Developer'
-description:         'github: https://github.com/Ghosttrio'
+description:         'Category'
 url:                 https://ghosttrio.github.io
 baseurl:             ''
 paginate:            5
