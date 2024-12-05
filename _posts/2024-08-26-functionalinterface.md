@@ -1,9 +1,8 @@
 ---
 layout: post
-title: 자바 FunctionalInterface
+title: 자바 @FunctionalInterface
 categories: Java
 ---
-
 
 @FunctionalInterface는 Java 8에서 도입된 어노테이션으로, 람다 표현식과 메서드 참조에 사용될 수 있는 함수형 인터페이스임을 나타낸다.
 
@@ -17,98 +16,23 @@ categories: Java
 
 ### 예제
 
-@FunctionalInterface 정의
+FunctionalInterface 정의는 @FunctionalInterface 어노테이션을 인터페이스에 붙여주면 된다.
 
-```java
-@FunctionalInterface
-public interface FunctionalInterfaceSample {
-    String execute();
-    // void execute1(); 2개 선언하거나 하나도 없으면 컴파일 에러
-}
-
-```
+{% gist Ghosttrio/debe9c84a5480e4b11839dbef3d62b24 %}
 
 default method는 여러개 선언 할 수 있다.
 
-```java
-@FunctionalInterface
-public interface FunctionalInterfaceSample {
-    void execute();
-
-    default void hello() {
-        System.out.println("hello");
-    }
-}
-
-```
+{% gist Ghosttrio/06d2fe3459bd406aa429d136126a93a9 %}
 
 함수형 인터페이스 사용
 
-```java
-public class Main {
-    public static void main(String[] args) {
-        FunctionalInterfaceSample fis = () -> System.out.println("hello");
-        fis.execute();
-        fis.hello();
-    }
-}
-
-// 결과
-hello
-hello
-
-```
+{% gist Ghosttrio/718096cf74512abd2f4b4d9db8c814e2 %}
 
 
 파라미터와 리턴타입을 바꿔서 활용할 수 있다.
 
-```java
-@FunctionalInterface
-public interface FunctionalInterfaceSample {
-    String execute(String input);
-
-    default void hello() {
-        System.out.println("hello");
-    }
-}
-
-public class Main {
-    public static void main(String[] args) {
-        FunctionalInterfaceSample fis = a -> a.concat(" hello");
-
-        String cspark = fis.execute("cspark");
-        System.out.println(cspark);
-        fis.hello();
-    }
-}
-
-// 결과
-cspark hello
-hello
-
-```
+{% gist Ghosttrio/7d4dcf0906395960cffcdaf74e6ec607 %}
 
 파라미터로 넣거나 리턴타입으로 함수형 인터페이스를 사용해서 활용할 수도 있다.
 
-```java
-
-public class Main {
-    public static void main(String[] args) {
-        String result = paramFunctionalInterface(input -> input + " test1");
-        System.out.println(result);
-
-        FunctionalInterfaceSample fis = paramFunctionalInterface2(" test2");
-        String result2 = fis.execute("cspark");
-        System.out.println(result2);
-    }
-
-    public static String paramFunctionalInterface(FunctionalInterfaceSample fis) {
-        return fis.execute("cspark");
-    }
-
-    public static FunctionalInterfaceSample paramFunctionalInterface2(String input) {
-        return a -> a + input;
-    }
-}
-
-```
+{% gist Ghosttrio/a61751a9f8a2af52988b5ec083835d82 %}
