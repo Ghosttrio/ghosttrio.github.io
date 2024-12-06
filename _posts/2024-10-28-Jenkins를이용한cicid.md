@@ -18,43 +18,19 @@ Jenkins에선 해당 내용을 빌드하고 DockerHub로 push 한다. 또한 Ubu
 
 이 API로 빌드 & 배포가 된 결과를 확인해보자
 
-```java
-
-@RestController
-public class HelloController {
-
-    @GetMapping
-    public String hello() {
-        return "Hello Jenkins";
-    }
-}
-
-```
+{% gist Ghosttrio/9bac723fc4aa2224b76fef4f0fffd533 %}
 
 ![alt text](/public/img/241028/image-3.png)
 
 도커로 배포할 것이기 때문에 도커파일도 작성해둔다.
 
-```Dockerfile
-
-FROM openjdk:17-alpine
-ARG JAR_FILE=/build/libs/jenkins-sample.jar
-COPY ${JAR_FILE} jenkins-sample.jar
-ENTRYPOINT ["java","-jar", "/jenkins-sample.jar"]
-
-```
-
-
+{% gist Ghosttrio/8508774c090013ff610a31b7d3086bb4 %}
 
 ### Jenkins 설치
 
 Jenkins를 도커로 설치해보자.
 
-```bash
-
-docker run -d -p 8080:8080 --name jenkins jenkins/jenkins:lts
-
-```
+{% gist Ghosttrio/747d9c574ca1442a9b6b2749f7badb96 %}
 
 도커로 젠킨스 컨테이너를 실행하고 http://localhost:8080 주소로 들어가면 Jenkins 설치 창이 나온다.
 
@@ -65,11 +41,7 @@ docker run -d -p 8080:8080 --name jenkins jenkins/jenkins:lts
 
 아니면 /var/lib/jenkins/secrets/initialAdminPassword 경로로 가서 확인할 수도 있다.
 
-```bash
-
-docker logs jenkins
-
-```
+{% gist Ghosttrio/40195593ae5f5bd4227fb3cdcfa1aae2 %}
 
 ![alt text](/public/img/241028/image-4.png)
 
@@ -154,48 +126,7 @@ Github project에 레파지토리의 url을 적고 Build Trigger 탭에서 GitHu
 
 Pipeline 탭에서는 아래와 같이 작성한다.
 
-```jenkinsfile
-
-pipeline {
-    agent any
-
-    stages {
-        stage('git') {
-            steps {
-                git branch: 'master', credentialsId: 'test', url: 'https://github.com/Ghosttrio/jenkins-sample.git'
-            }
-        }
-        
-        stage('build') {
-            steps {
-                sh 'chmod +x gradlew'
-
-                sh './gradlew clean build'
-
-                sh '''
-                    docker build -t ghosttrio/jenkins-sample .
-                    
-                    docker push ghosttrio/jenkins-sample:latest
-                '''
-            }
-        }
-        
-        stage('deploy') {
-            steps {
-                sshPublisher(publishers: [sshPublisherDesc(configName: 'test-ubuntu', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '''
-                        docker pull ghosttrio/jenkins-sample:latest
-
-                        docker ps -q --filter name=jenkins-sample | grep -q . && docker rm -f $(docker ps -aq --filter name=jenkins-sample)
-
-                        docker run -d -p 80:80 ghosttrio/jenkins-sample:latest
-
-                    ''', execTimeout: 100000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '**/*.jar')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
-            }
-        }
-   	}
-}
-
-```
+{% gist Ghosttrio/f92fbbd93957647a75f3bf7f2c0f0342 %}
 
 각 단계를 설명하자면, 
 
