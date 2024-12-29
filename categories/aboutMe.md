@@ -3,6 +3,8 @@ layout: page
 title: AboutMe
 ---
 
+안녕하세요. 백엔드 개발자 박창순입니다.
+
 <div>
     <img src="public/img/common/profile.jpg" style="width: 100%; max-height: 500px; object-fit: cover;">
     <p>
