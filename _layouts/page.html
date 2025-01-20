@@ -7,7 +7,7 @@ layout: default
   <h1 class="page-title">{{ page.title }}</h1>
   <p style="font-size: medium;">{{ site.posts.size }} 포스팅</p>
   {% for post in site.posts %}
-      <li><a href="{{ post.url }}">{{ post.title }}</a> {{ post.date | date: "%Y-%m-%d" }}</li>
+      <div><a href="{{ post.url }}">{{ post.title }}</a> {{ post.date | date: "%Y-%m-%d" }}</div>
   {% endfor %}
 </div>
 {% elsif page.title contains "AboutMe" %}
