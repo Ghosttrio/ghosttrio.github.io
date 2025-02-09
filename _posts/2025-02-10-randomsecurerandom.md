@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Random과 SecureRandom
-categories: Backend
+categories: Java
 ---
 
 SonarQube를 이용해서 코드를 검토하던 중 Random 클래스를 사용하는 부분에 경고가 나왔다.
