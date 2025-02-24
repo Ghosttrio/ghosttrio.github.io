@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Kotiln data class
+title: Kotlin data class
 categories: Kotlin
 ---
 
